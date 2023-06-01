@@ -1,0 +1,116 @@
+﻿@model Amora.Models.OSBuscaViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gestor de Animales</h1>
+
+<a asp-action="ExportarExcel">Exporta a Excel</a>
+
+<p>
+    <a style="background-image:Violet" asp-action="Create">Crear Nuevo Registro</a>
+</p>
+
+<form asp-controller="Animals" asp-action="Index" method="get">
+    <p>
+        <select asp-for="OSAnimal" asp-items="Model.Tipo_vacuna">
+            <option value="">Todos</option>
+        </select>
+        Nombre: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filtro" />
+    </p>
+</form>
+
+<table class="table"style="background-color:#FFCEA5">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Rasgos_Distintivos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Fecha_Ingreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Ultima_Desparasitacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Tipo_vacuna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Dosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Fecha_Vacuna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals[0].Observaciones)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Animals) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rasgos_Distintivos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ultima_Desparasitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_vacuna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dosis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Vacuna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                    <center>
+                        |<a asp-action="Edit" asp-route-id="@item.Id">Editar</a>|
+                        |<a asp-action="Details" asp-route-id="@item.Id">Detalles</a>|
+                        |<a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>|
+                    </center>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

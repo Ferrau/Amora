@@ -1,0 +1,84 @@
+﻿@model Amora.Models.Animal
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear nuevo</h1>
+<h4>Registro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rasgos_Distintivos" class="control-label"></label>
+                <input asp-for="Rasgos_Distintivos" class="form-control" />
+                <span asp-validation-for="Rasgos_Distintivos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Peso" class="control-label"></label>
+                <input asp-for="Peso" class="form-control" />
+                <span asp-validation-for="Peso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Especie" class="control-label"></label>
+                <input asp-for="Especie" class="form-control" />
+                <span asp-validation-for="Especie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sexo" class="control-label"></label>
+                <input asp-for="Sexo" class="form-control" />
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha_Ingreso" class="control-label"></label>
+                <input asp-for="Fecha_Ingreso" class="form-control" />
+                <span asp-validation-for="Fecha_Ingreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ultima_Desparasitacion" class="control-label"></label>
+                <input asp-for="Ultima_Desparasitacion" class="form-control" />
+                <span asp-validation-for="Ultima_Desparasitacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipo_vacuna" class="control-label"></label>
+                <input asp-for="Tipo_vacuna" class="form-control" />
+                <span asp-validation-for="Tipo_vacuna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dosis" class="control-label"></label>
+                <input asp-for="Dosis" class="form-control" />
+                <span asp-validation-for="Dosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha_Vacuna" class="control-label"></label>
+                <input asp-for="Fecha_Vacuna" class="form-control" />
+                <span asp-validation-for="Fecha_Vacuna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observaciones" class="control-label"></label>
+                <input asp-for="Observaciones" class="form-control" />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" /> |
+                <a class="btn btn-secondary" asp-action="Index">Devuelta al Gestor</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
